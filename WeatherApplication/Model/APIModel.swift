@@ -10,9 +10,9 @@ import Foundation
 class APIModel {
     private static let key = "05d0f5b73d3d8032629902e2cbb33870"
     
-    static func getWeatherData(completionHandler:@escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
+    static func getWeatherData(lat: Double, lon: Double, completionHandler:@escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
         // Specify the url that we will be sending the GET Request to
-        let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=minutely&appid=\(self.key)")
+        let url = URL(string: "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(lon)&units=imperial&exclude=minutely&appid=\(self.key)")
         // Create a URLSession to handle the request tasks
         let session = URLSession.shared
         // Create a "data task" which will request some data from a URL and then run the completion handler that we are passing into the getAllPeople function itself
