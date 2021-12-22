@@ -14,9 +14,6 @@ class WeatherViewController: UIViewController {
     var hourlyWeatherList = [Current]()
     var dailyWeatherList = [Daily]()
     var weatherIcons = [String: UIImage]()
-//
-//    //Refresh Page
-//    let refreshControl = UIRefreshControl()
 
     @IBOutlet weak var hourlyCollectionView: UICollectionView!
     @IBOutlet weak var dailyCollectionView: UICollectionView!
@@ -36,20 +33,12 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
-//        refreshControl.addTarget(self, action: #selector(refreshPage), for: .valueChanged)
-//        view.addSubview(refreshControl)
-        
         hourlyCollectionView.dataSource = self
         hourlyCollectionView.delegate = self
         dailyCollectionView.dataSource = self
         dailyCollectionView.delegate = self
         gettingWeatherData(lat: 33.44, lon: -94.04)
     }
-    
-//    @objc func refreshPage() {
-//        gettingWeatherData(lat: 34.05, lon: -118.24)
-//    }
 
     func gettingWeatherData(lat: Double, lon: Double) {
         dailyWeatherList.removeAll()
