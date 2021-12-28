@@ -38,7 +38,7 @@ struct Current: Codable {
     let windDeg: Int
     let weather: [Weather]
     let windGust: Double?
-    let pop: Int?
+    let pop: Double?
     
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, temp
